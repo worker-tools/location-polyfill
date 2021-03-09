@@ -29,5 +29,13 @@
   "devDependencies": {
     "shx": "^0.3.3",
     "typescript": "^4.2.3"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/worker-tools/location-polyfill.git"
+  },
+  "bugs": {
+    "url": "https://github.com/worker-tools/location-polyfill/issues"
+  },
+  "homepage": "https://github.com/worker-tools/location-polyfill#readme"
 }
