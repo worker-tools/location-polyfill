@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "lib": [
+      "ES2020",
+      "WebWorker",
+      "DOM"
+    ],
+    "target": "ES2019",
+    "moduleResolution": "Node",
+    "outDir": ".",
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "inlineSources": true,
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "strict": true,
+    "types": [
+      "@cloudflare/workers-types"
+    ],
+  },
+  "include": [
+    "index.ts"
+  ],
+  "exclude": []
+}

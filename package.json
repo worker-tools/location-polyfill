@@ -1,0 +1,33 @@
+{
+  "name": "@worker-tools/location-polyfill",
+  "version": "0.0.0",
+  "description": "A Location polyfill for Cloudflare Workers",
+  "type": "module",
+  "main": "index.js",
+  "module": "index.js",
+  "types": "index.d.ts",
+  "exports": {
+    "import": "./index.js",
+    "default": "./index.js"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "index*"
+  ],
+  "scripts": {
+    "clean": "shx rm -rf *.js *.js.map *.d.ts* *.tgz",
+    "prepack": "npm run clean && npm run build",
+    "build": "tsc -d -p tsconfig.json"
+  },
+  "author": "Florian Klampfer <mail@qwtel.com> (https://qwtel.com/)",
+  "license": "MIT",
+  "dependencies": {
+    "@cloudflare/workers-types": "^2.1.0"
+  },
+  "devDependencies": {
+    "shx": "^0.3.3",
+    "typescript": "^4.2.3"
+  }
+}
