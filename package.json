@@ -14,7 +14,8 @@
     "access": "public"
   },
   "files": [
-    "index*"
+    "index*",
+    "tsconfig.json"
   ],
   "scripts": {
     "postinstall": "shx ls index.js >> /dev/null 2>&1 || npm run build",
