@@ -27,7 +27,7 @@ function polyfillLocation(event: FetchEvent): void {
 }
 
 if (!('location' in self)) {
-  if (Reflect.get(self, 'WORKER_LOCATION')) {
+  if (Reflect.has(self, 'WORKER_LOCATION')) {
     defineProperty(Reflect.get(self, 'WORKER_LOCATION'));
   } else {
     self.addEventListener('fetch', polyfillLocation);
