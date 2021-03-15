@@ -1,9 +1,6 @@
-class LocationPolyfill implements Location {
+class WorkerLocationPolyfill implements WorkerLocation {
   #url: URL;
-  constructor(href: string) {
-    this.#url = new URL(href);
-  }
-  get ancestorOrigins(): DOMStringList { throw new Error('Getter not implemented.') };
+  constructor(href: string) { this.#url = new URL(href) }
   get hash(): string { return '' };
   get host(): string { return this.#url.host };
   get hostname(): string { return this.#url.hostname };
@@ -13,33 +10,20 @@ class LocationPolyfill implements Location {
   get port(): string { return this.#url.port };
   get protocol(): string { return this.#url.protocol };
   get search(): string { return '' };
-  assign(_url: string): void {
-    throw new Error("Method not implemented.");
-  }
-  reload(): void;
-  reload(_forcedReload: boolean): void;
-  reload(_forcedReload?: any) {
-    throw new Error("Method not implemented.");
-  }
-  replace(_url: string): void {
-    throw new Error("Method not implemented.");
-  }
-  toString(): string {
-    return this.href;
-  }
+  toString(): string { return this.href }
 }
 
-function defineProperty(url: string) {
+function defineProperty(url: string, writable = false) {
   Object.defineProperty(self, 'location', {
     configurable: false,
     enumerable: true,
-    writable: false,
-    value: new LocationPolyfill(url),
+    writable,
+    value: new WorkerLocationPolyfill(url),
   });
 }
 
 function polyfillLocation(event: FetchEvent): void {
-  defineProperty(event.request.url);
+  defineProperty(event.request.url, true);
 }
 
 if (!('location' in self)) {
