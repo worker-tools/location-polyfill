@@ -39,5 +39,10 @@
   "bugs": {
     "url": "https://github.com/worker-tools/location-polyfill/issues"
   },
-  "homepage": "https://github.com/worker-tools/location-polyfill#readme"
+  "homepage": "https://github.com/worker-tools/location-polyfill#readme",
+  "keywords": [
+    "polyfill",
+    "location-api",
+    "cloudflare-workers"
+  ]
 }
