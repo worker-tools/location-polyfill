@@ -26,9 +26,12 @@ function polyfillLocation(event: FetchEvent): void {
   defineProperty(event.request.url, true);
 }
 
+const getProcessEnv = (k: string) => Reflect.get(Reflect.get(Reflect.get(self, 'process') || {}, 'env') || {}, k);
+
+const WORKER_LOCATION = 'WORKER_LOCATION';
 if (!('location' in self)) {
-  if (Reflect.has(self, 'WORKER_LOCATION')) {
-    defineProperty(Reflect.get(self, 'WORKER_LOCATION'));
+  if (Reflect.has(self, WORKER_LOCATION) || getProcessEnv(WORKER_LOCATION) != null) {
+    defineProperty(Reflect.get(self, WORKER_LOCATION) || getProcessEnv(WORKER_LOCATION));
   } else {
     self.addEventListener('fetch', polyfillLocation);
   }
