@@ -18,6 +18,7 @@
     "tsconfig.json"
   ],
   "scripts": {
+    "postinstall": "shx ls index.js >> /dev/null 2>&1 || npm run build",
     "clean": "shx rm -rf *.js *.js.map *.d.ts* *.tgz",
     "test": "shx echo \"Warning: no test specified\" && exit 0",
     "prepack": "npm run clean && npm run build",
