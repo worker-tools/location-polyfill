@@ -19,6 +19,7 @@
   ],
   "scripts": {
     "clean": "shx rm -rf *.js *.js.map *.d.ts* *.tgz",
+    "test": "shx echo \"Warning: no test specified\" && exit 0",
     "prepack": "npm run clean && npm run build",
     "build": "tsc -d -p tsconfig.json"
   },
