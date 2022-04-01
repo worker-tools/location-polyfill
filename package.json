@@ -1,6 +1,6 @@
 {
   "name": "@worker-tools/location-polyfill",
-  "version": "0.3.2-pre.2",
+  "version": "0.3.2-pre.3",
   "description": "A Location polyfill for Cloudflare Workers",
   "type": "module",
   "main": "index.js",
