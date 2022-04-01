@@ -18,7 +18,6 @@
     "tsconfig.json"
   ],
   "scripts": {
-    "postinstall": "[ -f index.js ] || npm run build",
     "clean": "rm -rf *.js *.js.map *.d.ts* *.tgz",
     "test": "echo \"Warning: no test specified\" && exit 0",
     "prepack": "npm run clean && npm run build",
