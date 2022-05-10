@@ -26,9 +26,8 @@ function polyfillLocation(event: FetchEvent): void {
   defineProperty(event.request.url, true);
 }
 
-const WORKER_LOCATION = 'WORKER_LOCATION';
 if (!('location' in self)) {
-  const envLoc = ((<any>self)[WORKER_LOCATION]) ?? ((<any>self).process?.env?.[WORKER_LOCATION])
+  const envLoc = ((<any>self)['WORKER_LOCATION']) ?? ((<any>self).process?.env?.['WORKER_LOCATION'])
   if (envLoc) {
     defineProperty(envLoc);
   } else {
