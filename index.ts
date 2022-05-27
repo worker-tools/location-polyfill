@@ -1,3 +1,6 @@
+// deno-lint-ignore-file no-explicit-any no-explicit-any
+
+// @ts-ignore: Deno doesn't know about WorkerLocation
 class WorkerLocationPolyfill implements WorkerLocation {
   #url: URL;
   constructor(href: string) { this.#url = new URL(href) }
@@ -27,7 +30,7 @@ function polyfillLocation(event: FetchEvent): void {
 }
 
 if (!('location' in self)) {
-  const envLoc = ((<any>self)['WORKER_LOCATION']) ?? ((<any>self).process?.env?.['WORKER_LOCATION'])
+  const envLoc = ((<any>self).WORKER_LOCATION) ?? ((<any>self).process?.env?.WORKER_LOCATION)
   if (envLoc) {
     defineProperty(envLoc);
   } else {
