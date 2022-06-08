@@ -25,8 +25,10 @@ function defineProperty(url: string, writable = false) {
   });
 }
 
-function polyfillLocation(event: FetchEvent): void {
-  defineProperty(event.request.url, true);
+function polyfillLocation(event: Event): void {
+  // @ts-ignore: Deno doesn't know about FetchEvent
+  const _event = event as FetchEvent;
+  defineProperty(_event.request.url, true);
 }
 
 if (!('location' in self)) {

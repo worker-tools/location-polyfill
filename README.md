@@ -24,7 +24,11 @@ In CF Workers, add the following to your `wrangler.toml` to define this variable
   WORKER_LOCATION = 'http://localhost:8787'
 ```
 
+<br/>
+
 --------
+
+<br/>
 
 <p align="center"><a href="https://workers.tools"><img src="https://workers.tools/assets/img/logo.svg" width="100" height="100" /></a>
 <p align="center">This module is part of the Worker Tools collection<br/>⁕
